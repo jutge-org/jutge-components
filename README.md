@@ -35,3 +35,11 @@ Configuration: See https://react-svgr.com/docs/next/ to configure `svgr`.
 The `Code` component is a simple wrapper around the `highlight.js` library. It provides a way to display code snippets in a consistent way across the Jutge.
 
 Dependencies: `highlight.js` and `react-highlight` packages.
+
+## Markdown
+
+The `Markdown` component is a component that display a string formatted in Markdown.
+
+Dependencies: `marked`, `dompurify` and `@tailwindcss/typography` packages.
+
+Configuration: `@tailwindcss/typography` requires some configuration.
