@@ -38,8 +38,16 @@ Dependencies: `highlight.js` and `react-highlight` packages.
 
 ## Markdown
 
-The `Markdown` component is a component that display a string formatted in Markdown.
+The `Markdown` component is a component that displays a string formatted in Markdown. It uses GitHub's flavoured Markdown and provides sanitazes the input.
 
 Dependencies: `marked`, `dompurify` and `@tailwindcss/typography` packages.
 
 Configuration: `@tailwindcss/typography` requires some configuration.
+
+# Spinners
+
+## SimpleSpinner
+
+The `SimpleSpinner` component is a simple and small rotating spinner that can be used to indicate loading state inline. It uses the `lucide-react` package for the spinner icon. It is shown after some delay so that most times it is not ever seen.
+
+Dependencies: `lucice-react`.
