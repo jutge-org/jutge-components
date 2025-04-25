@@ -29,3 +29,9 @@ The `DevIcon` component provides an icon that shows the logo of a programming la
 Dependencies: `devicon`, `lucice-react` and `svgr` packages.
 
 Configuration: See https://react-svgr.com/docs/next/ to configure `svgr`.
+
+## Code
+
+The `Code` component is a simple wrapper around the `highlight.js` library. It provides a way to display code snippets in a consistent way across the Jutge.
+
+Dependencies: `highlight.js` and `react-highlight` packages.
