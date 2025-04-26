@@ -42,6 +42,34 @@ The `JTable` component is a table that displays a read-only list of items with d
 
 Dependencies: `shadcn` components.
 
+## JForm
+
+The `JForm` component is a form that displays a list of fields.
+
+More documentation should be added, but there are lots of examples in the code.
+
+The following kind of fields are supported:
+
+- Input
+- Number
+- Password
+- Textarea
+- Html
+- Markdown
+- File
+- Switch
+- DateTime
+- Button
+- Select
+- MultiSelect
+- Radio
+- Free
+- Separator
+
+Most field can have a validator, using `zod`.
+
+Dependencies: many, see the imports.
+
 # User Interface
 
 ## DateTime
