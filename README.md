@@ -42,6 +42,13 @@ The `JTable` component is a table that displays a read-only list of items with d
 
 Dependencies: `shadcn` components.
 
+# User Interface
+
+## DateTime
+
+`DateTime` is a component that allows the user to select a date and time. It is
+based on https://github.com/hsuanyi-chou/shadcn-ui-expansions/blob/main/components/ui/datetime-picker.tsx
+
 # Misc
 
 ## DevIcon
