@@ -49,6 +49,16 @@ Dependencies: `shadcn` components.
 `DateTime` is a component that allows the user to select a date and time. It is
 based on https://github.com/hsuanyi-chou/shadcn-ui-expansions/blob/main/components/ui/datetime-picker.tsx
 
+Dependencies: `shadcn` components and `date-fns` package.
+
+Warning: There are some warnings in this code when doing the build.
+
+## MultiSelect
+
+The `MultiSelect` component is a component that allows the user to select multiple items from a list. It is based on https://github.com/sersavan/shadcn-multi-select-component
+
+Dependencies: `shadcn` components and `lucide-react` and `class-variance-authority` packages.
+
 # Misc
 
 ## DevIcon
