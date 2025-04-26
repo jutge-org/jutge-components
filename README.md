@@ -6,6 +6,8 @@ A place to store shared components for Jutge projects.
 
 TODO.
 
+It is assumed that all `shadcn` components are installed and configured. See https://ui.shadcn.com/docs/installation/next.
+
 # Dialogs
 
 ## InputDialog
@@ -17,6 +19,12 @@ Dependencies: `shadcn` components and `lucice-react` package.
 ## ConfirmDialog
 
 The `ConfirmDialog` component is a dialog that allows the user to accept or cancel some text. It is quite similar to the `confirm` dialog, but it is more flexible and allows for more customization (as labels and icons for the buttons). It returns `true` if accepted, or `false` if cancelled ot closed. See `ConfirmDialogDemo` for an example of how to use it.
+
+Dependencies: `shadcn` components and `lucice-react` package.
+
+## OkDialog
+
+The `OkDialog` component is a dialog that shows some text and an "OK" button. It is quite similar to the `alert` dialog, but it is more flexible and allows for more customization. It does not return anything. See `OkDialogDemo` for an example of how to use it.
 
 Dependencies: `shadcn` components and `lucice-react` package.
 
