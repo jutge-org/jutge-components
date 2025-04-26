@@ -34,6 +34,14 @@ The `EmailsDialog` component is a dialog that allows the user to input some emai
 
 Dependencies: `shadcn` components and `lucice-react` package.
 
+# Formatters
+
+## JTable
+
+The `JTable` component is a table that displays a read-only list of items with descriptions. It is quite similar to the `<dl>` HTML tag. Under a mobile device, it shows the descriptions in a single column. Under a desktop device, it shows the descriptions in two columns. No interactivity is expected. The items to display are given as a list of `JTableItem` objects, which have a `label` and a `value`. The `value` can be a string, a number, a component or `null`.
+
+Dependencies: `shadcn` components.
+
 # Misc
 
 ## DevIcon
