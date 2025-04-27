@@ -136,3 +136,15 @@ This is a copy of https://github.com/Qovery/react-xtermjs/blob/develop/src/xterm
 The `SimpleSpinner` component is a simple and small rotating spinner that can be used to indicate loading state inline. It uses the `lucide-react` package for the spinner icon. It is shown after some delay so that most times it is not ever seen.
 
 Dependencies: `lucice-react`.
+
+# Layouts
+
+## Court Layout
+
+The `Court Layout` is a layout that is used to display pages. It feature a single or double header with menus and a sidebar for the user's profile. It is currently used in the `Admin`, `Prof` and `Mussol` websites.
+
+# Credits
+
+- [Jordi Petit](https://github.com/jordi-petit)
+
+Universitat Politècnica de Catalunya. BarcelonaTech (UPC)
