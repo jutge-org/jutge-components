@@ -115,7 +115,11 @@ Dependencies: `marked`, `dompurify` and `@tailwindcss/typography` packages.
 
 Configuration: `@tailwindcss/typography` requires some configuration.
 
-# Spinners
+## AgTable and AgTableFull
+
+These are two components that embed an `AG Grid` fixing the darkk or light theme. In the case of `AgTableFull`, it is a full screen table. It is used to display large tables with lots of data.
+
+Dependencies: `ag-grid-react` and `ag-grid-community` packages.
 
 ## SimpleSpinner
 
