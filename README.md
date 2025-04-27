@@ -139,9 +139,9 @@ Dependencies: `lucice-react`.
 
 # Layouts
 
-## Court Layout
+## Court layout
 
-The `Court Layout` is a layout that is used to display pages. It feature a single or double header with menus and a sidebar for the user's profile. It is currently used in the `Admin`, `Prof` and `Mussol` websites.
+The `Court layout` is a layout that is used to display pages. It feature a single or double header with menus and a sidebar for the user's profile. It is currently used in the `Admin`, `Prof` and `Mussol` websites.
 
 # Credits
 
