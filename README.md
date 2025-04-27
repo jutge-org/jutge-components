@@ -125,6 +125,12 @@ These are two components that embed an `AG Grid` fixing the darkk or light theme
 
 Dependencies: `ag-grid-react` and `ag-grid-community` packages.
 
+## XTerm
+
+This is a copy of https://github.com/Qovery/react-xtermjs/blob/develop/src/xterm.tsx with just a single modification: add the `use client` directive. Otherwise, NextJS was complaining about document not being defined.
+
+# Spinners
+
 ## SimpleSpinner
 
 The `SimpleSpinner` component is a simple and small rotating spinner that can be used to indicate loading state inline. It uses the `lucide-react` package for the spinner icon. It is shown after some delay so that most times it is not ever seen.
