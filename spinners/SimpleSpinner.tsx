@@ -18,7 +18,7 @@ export default function SimpleSpinner(props: Props) {
     if (!show) return null
 
     return (
-        <div className={cn('mt-24 flex flex-row justify-center gap-2', props.className)}>
+        <div className={cn('flex flex-row justify-center gap-2', props.className)}>
             <LoaderIcon className="animate-spin" size={props.size || 18} />
         </div>
     )
