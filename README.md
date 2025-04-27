@@ -87,6 +87,10 @@ The `MultiSelect` component is a component that allows the user to select multip
 
 Dependencies: `shadcn` components and `lucide-react` and `class-variance-authority` packages.
 
+## FloatingToolbar
+
+The `FloatingToolbar` component is a component that may be placed on the bottom right corner of the screen, on the top of all layers. It is used to show a toolbar with some actions.
+
 # Wrappers
 
 ## DevIcon
