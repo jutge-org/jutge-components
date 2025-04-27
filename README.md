@@ -87,7 +87,7 @@ The `MultiSelect` component is a component that allows the user to select multip
 
 Dependencies: `shadcn` components and `lucide-react` and `class-variance-authority` packages.
 
-# Misc
+# Wrappers
 
 ## DevIcon
 
@@ -114,6 +114,10 @@ The `Markdown` component is a component that displays a string formatted in Mark
 Dependencies: `marked`, `dompurify` and `@tailwindcss/typography` packages.
 
 Configuration: `@tailwindcss/typography` requires some configuration.
+
+## HtmlEditor
+
+The `HtmlEditor` component is a wrapper around the Tip Tap editor. Based on https://github.com/damithadev/shadcn-rich-text-editor-with-tiptap
 
 ## AgTable and AgTableFull
 
