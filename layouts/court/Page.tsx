@@ -1,11 +1,11 @@
 'use client'
 
+import { CommandKDialog } from '@/components/CommandKDialog'
 import LoginForm from '@/components/LoginForm'
 import { useAuth } from '@/jutge-components/layouts/court/lib/Auth'
 import CommandKProvider, { useCommandK } from '@/jutge-components/layouts/court/lib/CommandK'
 import { ConfirmDialogProvider } from '@omit/react-confirm-dialog'
 import { JSX, ReactNode } from 'react'
-import { CommandKDialog } from '../../../components/CommandKDialog'
 import NavBar from './NavBar'
 
 export type PageContext = {
@@ -48,7 +48,7 @@ export default function Page(props: PageProps) {
                         }}
                     >
                         <NavBar pageContext={props.pageContext} />
-                        <div className="mt-2 mb-16 sm:mt-8 px-2 container mx-auto max-w-[1000px]">
+                        <div className="mt-2 mb-16 sm:mt-8 px-2 container mx-auto">
                             {props.children}
                         </div>
                         <CommandKDialog open={cmdK.open} setOpen={cmdK.setOpen} />

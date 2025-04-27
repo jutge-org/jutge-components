@@ -24,7 +24,7 @@ export default function NavBar({ pageContext }: { pageContext: PageContext }) {
         <nav className="sticky top-0 z-40 w-full bg-background">
             <div className="flex flex-col">
                 <div className="border-b bg-neutral-100 dark:bg-neutral-800">
-                    <div className="container mx-auto max-w-[1000px] h-12 flex flex-row items-center">
+                    <div className="container mx-auto h-12 flex flex-row items-center">
                         <div className="size-2" />
                         <div className="hidden sm:block">
                             <CommandKToggle />
@@ -47,7 +47,7 @@ export default function NavBar({ pageContext }: { pageContext: PageContext }) {
                 {pageContext.subTitle && (
                     <div className="border-b">
                         <div className="block sm:hidden">
-                            <div className="container mx-auto max-w-[1000px] h-12 w-full flex flex-row items-center">
+                            <div className="container mx-auto h-12 w-full flex flex-row items-center">
                                 <div className="w-full flex flex-row items-center">
                                     <div className="size-4" />
                                     <div className="font-bold">{pageContext.subTitle}</div>
@@ -57,7 +57,7 @@ export default function NavBar({ pageContext }: { pageContext: PageContext }) {
                             </div>
                         </div>
                         <div className="hidden sm:block">
-                            <div className="container mx-auto max-w-[1000px] h-12 w-full flex flex-row items-center">
+                            <div className="container mx-auto h-12 w-full flex flex-row items-center">
                                 <div className="w-full flex flex-row items-center">
                                     <div className="size-4" />
                                     <div className="font-bold">{pageContext.subTitle}</div>

@@ -1,11 +1,13 @@
+import { cn } from '@/lib/utils'
 import { LoaderIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 type Props = {
     size?: number
+    className?: string
 }
 
-export default function SimpleSpinner({ size = 64 }: Props) {
+export default function SimpleSpinner(props: Props) {
     const [show, setShow] = useState(false)
 
     useEffect(() => {
@@ -16,8 +18,8 @@ export default function SimpleSpinner({ size = 64 }: Props) {
     if (!show) return null
 
     return (
-        <div className="mt-24 flex flex-row justify-center gap-2">
-            <LoaderIcon className="animate-spin" size={size} />
+        <div className={cn('mt-24 flex flex-row justify-center gap-2', props.className)}>
+            <LoaderIcon className="animate-spin" size={props.size || 18} />
         </div>
     )
 }
