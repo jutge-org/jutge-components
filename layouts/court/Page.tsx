@@ -4,7 +4,6 @@ import { CommandKDialog } from '@/components/CommandKDialog'
 import LoginForm from '@/components/LoginForm'
 import { useAuth } from '@/jutge-components/layouts/court/lib/Auth'
 import CommandKProvider, { useCommandK } from '@/jutge-components/layouts/court/lib/CommandK'
-import { ConfirmDialogProvider } from '@omit/react-confirm-dialog'
 import { JSX, ReactNode } from 'react'
 import NavBar from './NavBar'
 
@@ -32,27 +31,11 @@ export default function Page(props: PageProps) {
         return (
             <>
                 <CommandKProvider>
-                    <ConfirmDialogProvider
-                        defaultOptions={{
-                            confirmText: 'Yes',
-                            cancelText: 'No',
-                            confirmButton: {
-                                className: 'w-24',
-                            },
-                            cancelButton: {
-                                className: 'w-24',
-                            },
-                            alertDialogDescription: {
-                                className: 'text-primary pb-6',
-                            },
-                        }}
-                    >
-                        <NavBar pageContext={props.pageContext} />
-                        <div className="mt-2 mb-16 sm:mt-8 px-2 container mx-auto">
-                            {props.children}
-                        </div>
-                        <CommandKDialog open={cmdK.open} setOpen={cmdK.setOpen} />
-                    </ConfirmDialogProvider>
+                    <NavBar pageContext={props.pageContext} />
+                    <div className="mt-2 mb-16 sm:mt-8 px-2 container mx-auto">
+                        {props.children}
+                    </div>
+                    <CommandKDialog open={cmdK.open} setOpen={cmdK.setOpen} />
                 </CommandKProvider>
             </>
         )
