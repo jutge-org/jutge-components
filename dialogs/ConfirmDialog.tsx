@@ -68,7 +68,7 @@ export const useConfirmDialog = (
                             <DialogDescription>{message}</DialogDescription>
                         </DialogHeader>
                         <div className="w-full flex flex-row gap-2 pt-4">
-                            <Button className="w-full" variant="secondary" onClick={cancelAction}>
+                            <Button className="w-full" variant="outline" onClick={cancelAction}>
                                 {cancelIcon}
                                 {config.cancelLabel || 'Cancel'}
                             </Button>
