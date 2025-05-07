@@ -21,55 +21,57 @@ import SignInButton from './SignInButton'
 
 export default function NavBar({ pageContext }: { pageContext: PageContext }) {
     return (
-        <nav className="sticky top-0 z-40 w-full bg-background">
-            <div className="flex flex-col">
-                <div className="border-b bg-neutral-100 dark:bg-neutral-800">
-                    <div className="container mx-auto h-12 flex flex-row items-center">
-                        <div className="size-2" />
-                        <div className="hidden sm:block">
-                            <CommandKToggle />
+        <div>
+            <nav className="sticky top-0 z-40 w-full bg-background">
+                <div className="flex flex-col">
+                    <div className="border-b bg-neutral-100 dark:bg-neutral-800">
+                        <div className="container mx-auto h-12 flex flex-row items-center">
+                            <div className="size-2" />
+                            <div className="hidden sm:block">
+                                <CommandKToggle />
+                            </div>
+                            <div className="hidden sm:block">
+                                <MainMenu pageContext={pageContext} />
+                            </div>
+                            <div className="block sm:hidden">
+                                <HamburgerMenu pageContext={pageContext} />
+                            </div>
+                            <div className="flex-grow" />
+                            {pageContext.menu === 'public' && pageContext.current !== 'home' && (
+                                <SignInButton />
+                            )}
+                            <ModeToggle />
+                            <PaletteToggle />
+                            <ProfileToggle />
                         </div>
-                        <div className="hidden sm:block">
-                            <MainMenu pageContext={pageContext} />
-                        </div>
-                        <div className="block sm:hidden">
-                            <HamburgerMenu pageContext={pageContext} />
-                        </div>
-                        <div className="flex-grow" />
-                        {pageContext.menu === 'public' && pageContext.current !== 'home' && (
-                            <SignInButton />
-                        )}
-                        <ModeToggle />
-                        <PaletteToggle />
-                        <ProfileToggle />
                     </div>
+                    {pageContext.subTitle && (
+                        <div className="border-b">
+                            <div className="block sm:hidden">
+                                <div className="container mx-auto h-12 w-full flex flex-row items-center">
+                                    <div className="w-full flex flex-row items-center">
+                                        <div className="size-4" />
+                                        <div className="font-bold">{pageContext.subTitle}</div>
+                                        <div className="flex-grow" />
+                                        <HamburgerSubMenu pageContext={pageContext} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="hidden sm:block">
+                                <div className="container mx-auto h-12 w-full flex flex-row items-center">
+                                    <div className="w-full flex flex-row items-center">
+                                        <div className="size-4" />
+                                        <div className="font-bold">{pageContext.subTitle}</div>
+                                        <div className="flex-grow" />
+                                        <SubMenu pageContext={pageContext} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
-                {pageContext.subTitle && (
-                    <div className="border-b">
-                        <div className="block sm:hidden">
-                            <div className="container mx-auto h-12 w-full flex flex-row items-center">
-                                <div className="w-full flex flex-row items-center">
-                                    <div className="size-4" />
-                                    <div className="font-bold">{pageContext.subTitle}</div>
-                                    <div className="flex-grow" />
-                                    <HamburgerSubMenu pageContext={pageContext} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="hidden sm:block">
-                            <div className="container mx-auto h-12 w-full flex flex-row items-center">
-                                <div className="w-full flex flex-row items-center">
-                                    <div className="size-4" />
-                                    <div className="font-bold">{pageContext.subTitle}</div>
-                                    <div className="flex-grow" />
-                                    <SubMenu pageContext={pageContext} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
-        </nav>
+            </nav>
+        </div>
     )
 }
 
