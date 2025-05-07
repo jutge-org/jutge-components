@@ -8,7 +8,7 @@ import {
     themeQuartz,
 } from 'ag-grid-community'
 import { AgGridReact } from 'ag-grid-react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '../layouts/court/lib/Theme'
 
 ModuleRegistry.registerModules([AllCommunityModule])
 
@@ -26,7 +26,7 @@ export function AgTableFull(props: any) {
 
     return (
         <div className="h-[calc(100vh-200px)] w-full">
-            <AgGridReact {...props} theme={theme.theme === 'dark' ? myThemeDark : myThemeLight} />
+            <AgGridReact {...props} theme={theme.mode === 'dark' ? myThemeDark : myThemeLight} />
         </div>
     )
 }
@@ -34,5 +34,5 @@ export function AgTableFull(props: any) {
 export function AgTable(props: any) {
     const theme = useTheme()
 
-    return <AgGridReact {...props} theme={theme.theme === 'dark' ? myThemeDark : myThemeLight} />
+    return <AgGridReact {...props} theme={theme.mode === 'dark' ? myThemeDark : myThemeLight} />
 }
