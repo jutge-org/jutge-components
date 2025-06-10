@@ -7,7 +7,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { menus } from '@/lib/menus'
+import { menus, shortTitle } from '@/lib/menus'
 import { EllipsisVerticalIcon, MenuIcon } from 'lucide-react'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -139,7 +139,7 @@ function HamburgerMenu({ pageContext }: { pageContext: PageContext }) {
                     <div className="w-2" />
                     <MenuIcon size={24} />
                     <div className="w-4" />
-                    <div className="font-bold">Prof.Jutge.org</div>
+                    <div className="font-bold">{shortTitle || 'jutge.org'}</div>
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-48 shadow-lg">
