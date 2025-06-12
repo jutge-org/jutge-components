@@ -719,18 +719,34 @@ interface JDateTimeComponentProps {
 }
 
 function JDateTimeComponent(props: JDateTimeComponentProps) {
-    const content = (
-        <div className="">
-            <DateTimePicker
-                value={new Date(props.field.value)}
-                onChange={(date: Date | undefined) => {
-                    if (date && props.field.setValue) {
-                        props.field.setValue(date.toISOString())
-                    }
-                }}
-            />
-        </div>
-    )
+    let content
+    if (props.field.disabled) {
+         content = (
+            <div className="relative w-full">
+                <Input
+                    className='w-full pr-10'
+                    value={props.field.value}
+                    disabled={true}
+                    placeholder={props.field.placeHolder || ''}
+                />
+                        <PenOffIcon className='absolute right-0 top-0 m-2.5 h-4 w-4 text-muted-foreground' />
+
+            </div>
+        )
+        } else {
+        content = (
+            <div className="">
+                <DateTimePicker
+                    value={new Date(props.field.value)}
+                    onChange={(date: Date | undefined) => {
+                        if (date && props.field.setValue) {
+                            props.field.setValue(date.toISOString())
+                        }
+                    }}
+                />
+            </div>
+        )
+    }
 
     return (
         <JFieldComponent
