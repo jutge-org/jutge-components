@@ -721,19 +721,18 @@ interface JDateTimeComponentProps {
 function JDateTimeComponent(props: JDateTimeComponentProps) {
     let content
     if (props.field.disabled) {
-         content = (
+        content = (
             <div className="relative w-full">
                 <Input
-                    className='w-full pr-10'
+                    className="w-full pr-10"
                     value={props.field.value}
                     disabled={true}
                     placeholder={props.field.placeHolder || ''}
                 />
-                        <PenOffIcon className='absolute right-0 top-0 m-2.5 h-4 w-4 text-muted-foreground' />
-
+                <PenOffIcon className="absolute right-0 top-0 m-2.5 h-4 w-4 text-muted-foreground" />
             </div>
         )
-        } else {
+    } else {
         content = (
             <div className="">
                 <DateTimePicker
