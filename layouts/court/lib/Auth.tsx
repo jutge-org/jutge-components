@@ -18,7 +18,7 @@ const AuthContext = createContext<AuthProviderProps>({
     login: async (): Promise<boolean> => {
         return false
     },
-    logout: async () => {},
+    logout: async () => { },
 })
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
@@ -37,7 +37,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             const expiration_date = dayjs(expiration)
             if (now.isAfter(expiration_date)) return false
 
-            jutge.meta = { token, exam: null }
+            jutge.meta = { token }
             const profile = await jutge.student.profile.get()
             if (!profile.instructor) return false
             setUser(profile)
