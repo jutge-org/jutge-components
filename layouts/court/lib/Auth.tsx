@@ -18,7 +18,7 @@ const AuthContext = createContext<AuthProviderProps>({
     login: async (): Promise<boolean> => {
         return false
     },
-    logout: async () => { },
+    logout: async () => {},
 })
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
