@@ -40,7 +40,7 @@ import { MultiSelect } from '../ui/MultiSelect'
 
 export type JFormInputField = {
     type: 'input'
-    label: string
+    label: string | JSX.Element
     value: string
     setValue?: (value: string) => void
     validator?: ZodSchema
@@ -70,7 +70,7 @@ export type JFormPasswordField = {
 
 export type JFormTextareaField = {
     type: 'textarea'
-    label: string
+    label: string | JSX.Element
     value: string
     setValue: (value: string) => void
     validator?: ZodSchema
@@ -778,8 +778,8 @@ function JSelectComponent(props: JSelectComponentProps) {
                     >
                         {props.field.value !== null
                             ? props.field.options.find(
-                                  (framework) => framework.value === props.field.value,
-                              )?.label
+                                (framework) => framework.value === props.field.value,
+                            )?.label
                             : ''}
                         <ChevronsUpDown className="opacity-50" />
                     </Button>
