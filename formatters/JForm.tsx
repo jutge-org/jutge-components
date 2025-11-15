@@ -50,7 +50,7 @@ export type JFormInputField = {
 
 export type JFormNumberField = {
     type: 'number'
-    label: string
+    label: string | JSX.Element
     value: number
     setValue?: (value: number) => void
     validator?: ZodSchema
@@ -60,7 +60,7 @@ export type JFormNumberField = {
 
 export type JFormPasswordField = {
     type: 'password'
-    label: string
+    label: string | JSX.Element
     value: string | null
     setValue?: (value: string) => void
     validator?: ZodSchema
@@ -76,11 +76,12 @@ export type JFormTextareaField = {
     validator?: ZodSchema
     disabled?: boolean
     placeHolder?: string
+    rows?: number
 }
 
 export type JFormHtmlField = {
     type: 'html'
-    label: string
+    label: string | JSX.Element
     value: string
     setValue: (value: string) => void
     validator?: ZodSchema
@@ -90,7 +91,7 @@ export type JFormHtmlField = {
 
 export type JFormMarkdownField = {
     type: 'markdown'
-    label: string
+    label: string | JSX.Element
     value: string
     setValue?: (value: string) => void
     validator?: ZodSchema
@@ -100,7 +101,7 @@ export type JFormMarkdownField = {
 
 export type JFormFileField = {
     type: 'file'
-    label: string
+    label: string | JSX.Element
     value: File | null
     setValue: Dispatch<SetStateAction<File | null>>
     validator?: ZodSchema
@@ -110,15 +111,16 @@ export type JFormFileField = {
 
 export type JFormSwitchField = {
     type: 'switch'
-    label: string
+    label: string | JSX.Element
     value: boolean
     setValue: (value: boolean) => void
     disabled?: boolean
+    validator?: ZodSchema
 }
 
 export type JFormDateTimeField = {
     type: 'datetime'
-    label: string
+    label: string | JSX.Element
     value: string
     setValue?: (value: string) => void
     disabled?: boolean
@@ -127,7 +129,7 @@ export type JFormDateTimeField = {
 
 export type JFormSelectField = {
     type: 'select'
-    label: string
+    label: string | JSX.Element
     value: string | null
     setValue: (value: string | null) => void
     options: { value: string; label: string }[]
@@ -136,7 +138,7 @@ export type JFormSelectField = {
 
 export type JFormMultiSelectField = {
     type: 'multiSelect'
-    label: string
+    label: string | JSX.Element
     value: string[]
     setValue: (value: string[]) => void
     options: { value: string; label: string }[]
@@ -145,7 +147,7 @@ export type JFormMultiSelectField = {
 
 export type JFormRadioField = {
     type: 'radio'
-    label: string
+    label: string | JSX.Element
     value: string
     setValue: (value: string) => void
     options: { value: string; label: string | JSX.Element }[]
@@ -581,6 +583,7 @@ function JTextareaComponent(props: JTextareaComponentProps) {
             onChange={(e) => props.field.setValue(e.target.value)}
             disabled={props.field.disabled}
             placeholder={props.field.placeHolder || ''}
+            rows={props.field.rows || 4}
         />
     )
 
@@ -689,12 +692,32 @@ interface JSwitchComponentProps {
 function JSwitchComponent(props: JSwitchComponentProps) {
     // the height of switch is strange, thus the pt-2
 
+    function validate(value: boolean) {
+        if (props.field.validator) {
+            const result = props.field.validator.safeParse(value)
+            if (!result.success) {
+                let message = ''
+                for (const error of result.error.errors) {
+                    message += error.message + '. '
+                }
+                props.setErrors((prev) => ({ ...prev, [props.fieldKey]: message }))
+            } else {
+                props.setErrors((prev) => ({ ...prev, [props.fieldKey]: undefined }))
+            }
+        }
+    }
+
+    function change(value: boolean) {
+        validate(value)
+        if (props.field.setValue) props.field.setValue(value)
+    }
+
     const content = (
         <div className="pt-2">
             <div className="flex flex-row gap-2">
                 <Switch
                     checked={props.field.value}
-                    onCheckedChange={props.field.setValue}
+                    onCheckedChange={(value) => change(value)}
                     disabled={props.field.disabled}
                 />
                 <span className="text-sm">{props.field.value ? 'Yes' : 'No'}</span>
@@ -787,13 +810,13 @@ function JSelectComponent(props: JSelectComponentProps) {
                 <PopoverContent className="w-[400px] p-0 shadow-xl">
                     <Command>
                         <CommandInput
-                            placeholder={`Search ${props.field.label.toLowerCase()}...`}
+                            placeholder="Search"
                             className="h-9"
                         />
                         <CommandList>
                             <ScrollArea className="h-48">
                                 <CommandEmpty>
-                                    No {props.field.label.toLowerCase()} found.
+                                    No items found.
                                 </CommandEmpty>
                                 <CommandGroup>
                                     {props.field.options.map((option) => (
@@ -860,7 +883,7 @@ function JMultiSelectComponent(props: JMultiSelectComponentProps) {
                 options={props.field.options}
                 onValueChange={props.field.setValue}
                 defaultValue={props.field.value}
-                placeholder={`Select ${props.field.label.toLowerCase()}`}
+                placeholder="Select options"
                 variant="secondary"
             />
         </div>
